@@ -1,0 +1,9 @@
+bundle
+plugin
+.VimballRecord
+.netrwhist
+doc
+ruby
+.DS_Store
+
+
