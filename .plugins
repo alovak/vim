@@ -29,7 +29,6 @@ Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'mileszs/ack.vim'
 Bundle 'sickill/vim-pasta'
-Bundle 'airblade/vim-gitgutter'
 " stop here :)
 
 filetype plugin indent on
