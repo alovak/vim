@@ -187,7 +187,6 @@ set lazyredraw
 " set scrolloff=3 " show context above/below cursorline
 set scrolloff=3 " show context above/below cursorline
 
-vmap <Leader>c  <Plug>Commentary
-nmap <Leader>c  <Plug>Commentary
-nmap <Leader>cc <Plug>CommentaryLine
+vmap <Leader>cc  <Plug>Commentary
+nmap <Leader>cc  <Plug>CommentaryLine
 nmap <Leader>cu <Plug>CommentaryUndo
