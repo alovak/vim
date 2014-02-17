@@ -24,9 +24,6 @@ Bundle 'tpope/vim-eunuch'
 
 Bundle 'vim-scripts/vimwiki'
 Bundle 'godlygeek/tabular'
-Bundle 'edsono/vim-matchit'
-Bundle 'kana/vim-textobj-user'
-Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'mileszs/ack.vim'
 Bundle 'sickill/vim-pasta'
 " stop here :)
