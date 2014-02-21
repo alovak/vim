@@ -190,3 +190,5 @@ set scrolloff=3 " show context above/below cursorline
 vmap <Leader>cc  <Plug>Commentary
 nmap <Leader>cc  <Plug>CommentaryLine
 nmap <Leader>cu <Plug>CommentaryUndo
+
+nmap <Leader>yf :let @" = expand("%:t")<CR>
