@@ -177,6 +177,7 @@ nmap <Leader>a= :Tabularize /=/l1c1l0<CR>
 vmap <Leader>a= :Tabularize /=/l1c1l0<CR>
 nmap <Leader>ah :Tabularize /=><CR>
 vmap <Leader>ah :Tabularize /=><CR>
+map <Leader>an :Tabularize/\w:\zs/l0l1<CR>
 
 python from powerline.vim import setup as powerline_setup
 python powerline_setup()
