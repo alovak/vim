@@ -193,3 +193,7 @@ nmap <Leader>cc  <Plug>CommentaryLine
 nmap <Leader>cu <Plug>CommentaryUndo
 
 nmap <Leader>yf :let @" = expand("%:t")<CR>
+
+
+" unite plugin
+call unite#filters#matcher_default#use(['matcher_fuzzy'])

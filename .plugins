@@ -26,6 +26,8 @@ Bundle 'vim-scripts/vimwiki'
 Bundle 'godlygeek/tabular'
 Bundle 'mileszs/ack.vim'
 Bundle 'sickill/vim-pasta'
+Bundle "pangloss/vim-javascript"
+Bundle "Shougo/unite.vim"
 " stop here :)
 
 filetype plugin indent on
