@@ -55,7 +55,7 @@ else
   set guioptions=
   set lines=50 columns=800
   " set guifont=Monaco:h14
-  set guifont=Monaco\ for\ Powerline:h14
+  set guifont=Monaco\ for\ Powerline:h16
   set cursorline
   color rdark
 endif
@@ -99,7 +99,7 @@ let g:vimwiki_list = [{'path': '~/Documents/wiki'}]
 
 au BufRead,BufNewFile *.thor set filetype=ruby
 au BufRead,BufNewFile * set relativenumber
-au BufRead,BufNewFile * set noballooneval
+" au BufRead,BufNewFile * set noballooneval
 
 " create directory when saving new file
 au BufNewFile * :exe ': !mkdir -p ' . escape(fnamemodify(bufname('%'),':p:h'),'#% \\')
@@ -194,6 +194,4 @@ nmap <Leader>cu <Plug>CommentaryUndo
 
 nmap <Leader>yf :let @" = expand("%:t")<CR>
 
-
-" unite plugin
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
