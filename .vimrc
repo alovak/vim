@@ -195,3 +195,4 @@ nmap <Leader>cu <Plug>CommentaryUndo
 nmap <Leader>yf :let @" = expand("%:t")<CR>
 
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+map <F9>    :Dispatch<CR>
