@@ -83,8 +83,6 @@ set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=0
 
-setglobal tags+=~/tmp/.commontags
-
 let mapleader = ","
 
 filetype plugin indent on
@@ -95,6 +93,9 @@ let NERDSpaceDelims = 1
 "ctrlp settings
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$|\.*\|tmp$\|solr$\|doc$'
 let g:ctrlp_prompt_mappings = { 'AcceptSelection("h")': ['<c-o>'] }
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+let g:ctrlp_working_path_mode = ''
+
 let g:vimwiki_list = [{'path': '~/Documents/wiki'}]
 
 au BufRead,BufNewFile *.thor set filetype=ruby
@@ -154,7 +155,7 @@ function! CurrentPath()
 endfunction
 
 map <leader>gg :execute "LustyFilesystemExplorer" . GemHome() . "/gems" <CR>
-map <leader>gt :execute "!ctags -f ~/tmp/.commontags --languages=-javascript -R " . GemHome() . "/gems/ ".CurrentPath() <CR>
+map <leader>gt :execute "!ctags -f ./tmp/tags --languages=-javascript -R " . CurrentPath() <CR>
 
 " tagbar
 nmap <leader>t :TagbarToggle<CR>
@@ -196,3 +197,4 @@ nmap <Leader>yf :let @" = expand("%:t")<CR>
 
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 map <F9>    :Dispatch<CR>
+map <F10>    :Start<CR>
