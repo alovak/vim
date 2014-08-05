@@ -22,6 +22,7 @@ Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-dispatch'
+Bundle 'tpope/vim-rake'
 
 Bundle 'vim-scripts/vimwiki'
 Bundle 'godlygeek/tabular'
