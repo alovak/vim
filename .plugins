@@ -30,6 +30,10 @@ Bundle 'mileszs/ack.vim'
 Bundle 'sickill/vim-pasta'
 Bundle "pangloss/vim-javascript"
 Bundle "slim-template/vim-slim"
+Bundle 'Lokaltog/vim-easymotion'
+" for snippets
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 " stop here :)
 
 filetype plugin indent on

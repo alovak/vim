@@ -1,0 +1,12 @@
+snippet expjson "expect(response.body)"
+expect(response.body).to include_json <<-JSON
+  {
+    $0
+  }
+JSON
+endsnippet
+
+snippet expstatus "expect(response.status)"
+expect(response.status).to be($1)
+$0
+endsnippet

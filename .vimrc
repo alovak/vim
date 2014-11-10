@@ -198,3 +198,10 @@ nmap <Leader>yf :let @" = expand("%:t")<CR>
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 map <F9>    :Dispatch<CR>
 map <F10>    :Start<CR>
+map <F1> <Esc>
+map! <F1> <Esc>
+
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "vim-snippets"]
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
