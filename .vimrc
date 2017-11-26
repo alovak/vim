@@ -91,7 +91,8 @@ filetype plugin indent on
 let NERDSpaceDelims = 1
 
 "ctrlp settings
-let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$|\.*\|tmp$\|solr$\|doc$'
+" let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$|\.*\|tmp$\|solr$\|doc$'
+let g:ctrlp_custom_ignore = '(\.git|tmp|public)$'
 let g:ctrlp_prompt_mappings = { 'AcceptSelection("h")': ['<c-o>'] }
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_working_path_mode = ''
