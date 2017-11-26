@@ -1,4 +1,5 @@
 set nocompatible
+" set synmaxcol=120
 
 " Setup Vundle + plugins
 source ~/.vim/.plugins
@@ -10,7 +11,7 @@ setglobal fileencoding=utf-8
 " runtime bundle/vim-pathogen/autoload/pathogen.vim
 " call pathogen#infect()
 
-set visualbell
+set belloff=all
 
 " put unnamed register * to clipboard
 set clipboard=unnamed
@@ -21,15 +22,32 @@ set hlsearch is scs
 " read file if it was changed outside Vim
 set autoread
 
+filetype on
+filetype plugin on
+filetype indent on
+syntax on
+
+autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
+autocmd Filetype sh setlocal ts=4 sts=4 sw=4 noexpandtab
+autocmd Filetype php setlocal ts=4 sts=4 sw=4
 " Use 2 spaces for indentation and replace tabs with spaces in a smart way
 set sw=2 sts=2 et ai
-
 " Show line number and cursor line
 set relativenumber
 
 if !has('gui_running')
-  set t_Co=256
-  colorscheme rdark-terminal
+  set termguicolors
+  set t_8f=[38;2;%lu;%lu;%lum
+  set t_8b=[48;2;%lu;%lu;%lum
+  " set t_Co=256
+  " let g:solarized_termcolors=256
+  colorscheme rdark
+  " set background=dark
+  " colorscheme solarized
+  " colorscheme lucius
+  " let g:lucius_style = 'dark'
+  " let g:lucius_contrast = 'high'
+  " let g:lucius_contrast_bg = 'normal'
 
   " don't delay when you hit esc in terminal vim, this may make arrow keys not
   " work well when ssh'd in
@@ -55,19 +73,18 @@ else
   set guioptions=
   set lines=50 columns=800
   " set guifont=Monaco:h14
-  set guifont=Monaco\ for\ Powerline:h16
+  set guifont=Monaco\ for\ Powerline:h14
   set cursorline
   color rdark
 endif
 
-
-
 " highlight 80 column
-set colorcolumn=80
+" set colorcolumn=100
 set textwidth=81
 set wrap
-syntax on
 set noswapfile
+set cursorline
+
 
 " allow to hide modified buffers when open new file in window
 set hidden
@@ -85,21 +102,21 @@ set imsearch=0
 
 let mapleader = ","
 
-filetype plugin indent on
 
 "nerd commenter
 let NERDSpaceDelims = 1
 
 "ctrlp settings
-" let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$|\.*\|tmp$\|solr$\|doc$'
-let g:ctrlp_custom_ignore = '(\.git|tmp|public)$'
+let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$|\.*\|tmp$\|solr$\|doc$'
 let g:ctrlp_prompt_mappings = { 'AcceptSelection("h")': ['<c-o>'] }
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-let g:ctrlp_working_path_mode = ''
+" let g:ctrlp_working_path_mode = ''
+let g:ctrlp_working_path_mode = 'ra'
 
 let g:vimwiki_list = [{'path': '~/Documents/wiki'}]
 
 au BufRead,BufNewFile *.thor set filetype=ruby
+au BufRead,BufNewFile *.md.erb set filetype=markdown.eruby
 au BufRead,BufNewFile * set relativenumber
 " au BufRead,BufNewFile * set noballooneval
 
@@ -156,7 +173,9 @@ function! CurrentPath()
 endfunction
 
 map <leader>gg :execute "LustyFilesystemExplorer" . GemHome() . "/gems" <CR>
-map <leader>gt :execute "!ctags -f ./tmp/tags --languages=-javascript -R " . CurrentPath() <CR>
+map <leader>gt :execute "!ctags -f ./tags --languages=-javascript -R " . CurrentPath() <CR>
+
+set tags=tags;/
 
 " tagbar
 nmap <leader>t :TagbarToggle<CR>
@@ -194,11 +213,11 @@ vmap <Leader>cc  <Plug>Commentary
 nmap <Leader>cc  <Plug>CommentaryLine
 nmap <Leader>cu <Plug>CommentaryUndo
 
-nmap <Leader>yf :let @" = expand("%:t")<CR>
+nmap <Leader>yf :let @f = expand("%:t")<CR>
 
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
-map <F9>    :Dispatch<CR>
-map <F10>    :Start<CR>
+" map <F9>    :Dispatch<CR>
+" map <F10>    :Start<CR>
 map <F1> <Esc>
 map! <F1> <Esc>
 
@@ -206,3 +225,23 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips", "vim-snippets"]
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+let g:rspec_command = "Dispatch rspec {spec}"
+map <F9> :call RunCurrentSpecFile()<CR>
+map <F8> :call RunNearestSpec()<CR>
+" map <Leader>rl :call RunLastSpec()<CR>
+map <F7>ra :call RunAllSpecs()<CR>
+
+" set wrap for location list
+autocmd FileType qf setlocal wrap
+let g:vroom_use_dispatch = 1
+let g:vroom_use_bundle_exec = 0
+let g:vroom_test_unit_command = 'rake '
+
+
+" folding
+" do not fold anything by default
+set foldlevelstart=1
+set foldmethod=syntax
+" fix bacground color issue in tmux
+set t_ut=

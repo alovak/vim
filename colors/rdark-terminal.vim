@@ -31,6 +31,7 @@ let colors_name="rdark-terminal"
 set cursorline
 hi CursorLine term=NONE cterm=NONE ctermbg=237
 
+" hi Normal term=NONE cterm=NONE ctermbg=0 ctermfg=249
 hi Normal term=NONE cterm=NONE ctermbg=234 ctermfg=249
 hi NonText term=NONE cterm=NONE ctermbg=234 ctermfg=249
 hi Cursor term=NONE cterm=NONE ctermbg=1 ctermfg=1
